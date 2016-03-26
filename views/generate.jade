@@ -1,31 +1,32 @@
 extends ./layout.jade
 
 block content
-  if requestedGames && requestedGames.length > 0
-    each game in requestedGames
-      div.game
-        div.game-meta
-          h1.title= game.name
-          p.meta= game.players.possible[0] + " to " + game.players.possible[1] + " players (" + game.players.ideal[0] + " to " + game.players.ideal[1] + " preferred), " + "game length: " + game.time + ", rule difficulty: " + game.complexity.rules + ", strategy difficulty: " + game.complexity.meta + "."
-        
-        div.overviews
-          div.basic
-            each paragraph in game.overview.basic.split("\n")
-              p= paragraph
-                        
-        if game.expansions && game.expansions.length > 0
-          div.expansions
-            each expansion in game.expansions
-              div.expansion
-                div.expansion-meta
-                  h2.title= game.name + ": " + expansion.name
-                  p.meta= expansion.players.possible[0] + " to " + expansion.players.possible[1] + " players (" + expansion.players.ideal[0] + " to " + expansion.players.ideal[1] + " preferred), " + "game length: " + expansion.time + ", rule difficulty: " + expansion.complexity.rules + ", strategy difficulty: " + expansion.complexity.meta + "."
-                  
-                div.overviews
-                  div.basic
-                    each paragraph in expansion.overview.basic.split("\n")
-                      p= paragraph
-  else
-    p You need to 
-      a(href="/") request a game
-      |  first.
+  div.container
+    if requestedGames && requestedGames.length > 0
+      each game in requestedGames
+        div.game
+          div.game-meta
+            h1.title= game.name
+            p.meta= game.players.possible[0] + " to " + game.players.possible[1] + " players (" + game.players.ideal[0] + " to " + game.players.ideal[1] + " preferred), " + "game length: " + game.time + ", rule difficulty: " + game.complexity.rules + ", strategy difficulty: " + game.complexity.meta + "."
+          
+          div.overviews
+            div.basic
+              each paragraph in game.overview.basic.split("\n")
+                p= paragraph
+                          
+          if game.expansions && game.expansions.length > 0
+            div.expansions
+              each expansion in game.expansions
+                div.expansion
+                  div.expansion-meta
+                    h3.title= game.name + ": " + expansion.name
+                    p.meta= expansion.players.possible[0] + " to " + expansion.players.possible[1] + " players (" + expansion.players.ideal[0] + " to " + expansion.players.ideal[1] + " preferred), " + "game length: " + expansion.time + ", rule difficulty: " + expansion.complexity.rules + ", strategy difficulty: " + expansion.complexity.meta + "."
+                    
+                  div.overviews
+                    div.basic
+                      each paragraph in expansion.overview.basic.split("\n")
+                        p= paragraph
+    else
+      p You need to 
+        a(href="/") request a game
+        |  first.

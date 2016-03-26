@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:400,700);
 
-@media print {
+/*@media print {
   body {
     max-width: none;
   }
@@ -15,6 +15,26 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
+}*/
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 45em;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+.jumbotron {
+  text-align: center;
+  margin-top: 2.5em;
+}
+
+div.game-list {
+    padding-left: 4em;
+    margin-bottom: 2.5em;
 }
 
 div.game {
@@ -37,6 +57,10 @@ div.game p.players {
 div.game p.meta {
   margin-top: 0;
   margin-bottom: 1ex;
+}
+
+label.game {
+    padding-top: 1em;
 }
 
 label.expansion {
